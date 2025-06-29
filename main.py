@@ -45,6 +45,11 @@ def main():
     book_to_borrow = lib.findBook("The Hobbit")
     if book_to_borrow:
         t1.borrowBook(book_to_borrow)
+    
+    lib.book_review(b1)
+    print(lib.bookReviews)
+    lib.showReview(b1.title)
+    
 
     print(t1._id)
 

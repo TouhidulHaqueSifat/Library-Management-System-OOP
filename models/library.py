@@ -1,3 +1,4 @@
+
 class Library:
     
     def __init__(self, libraryName):
@@ -5,6 +6,7 @@ class Library:
         self.students = []
         self.teachers = []
         self.books = []
+        self.bookReviews = {}
 
     def addBook(self,bookName):
         self.books.append(bookName)
@@ -35,6 +37,26 @@ class Library:
                 return book
         return None
 
+    def book_review(self,book):
+
+        review = input("Please give your review: ")
+        if book.title not in self.bookReviews:
+            self.bookReviews[book.title] = []
+        self.bookReviews[book.title].append(review)
+        return self.bookReviews[book.title]
+    
+    def showReview(self, title_str):
+        print("All review keys:", [book.title for book in self.bookReviews])
+
+        if title_str in self.bookReviews:
+            reviews = self.bookReviews[title_str]
+            for i,review in enumerate(reviews, 1):
+                print(f"{i}. {review}")
+        else:
+            print(f"There are no reviews for '{title_str}'.")
+        
+        
+    
 
 
     
